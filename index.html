@@ -5,9 +5,18 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div id="rss-feed-display"></div>
+    <input type="text" id="article-url" placeholder="Enter article URL here">
+    <button id="parse-button">Parse Article</button>
+
+    <!-- RSS feed displayed -->
+    <div id="article-content">
+      <h1 id="article-title"></h1>
+      <img id="article-img" src="" alt="Article image">
+      <p id="article-description"></p>
+    </div>
+
     
-  
+    <!--SCRIPT-->
     <script src="script.js"></script>
 </body>
 </html>
