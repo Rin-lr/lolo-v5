@@ -13,6 +13,8 @@ document.getElementById('parse-button').addEventListener('click', function() {
     .then(response => response.json())
     .then(data => {
       // Data = JSON returned from the API
+
+      console.log(data)
       document.getElementById('article-title').textContent = data.title;
       document.getElementById('article-img').src = data.lead_image_url;
       document.getElementById('article-description').textContent = data.excerpt;
