@@ -8,29 +8,29 @@ const app = express();
 
 app.use(express.json());
 
+//Mercury API POST req
 app.post('/webparser', (req, res) => {
-  const articleUrl = req.body.url;
+  const src = req.body.url;
   fetch('https://uptime-mercury-api.azurewebsites.net/webparser', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      // Add any other headers required by the API
     },
     body: JSON.stringify({
-      url: articleUrl
+      url: src
     })
   })
   .then(apiResponse => apiResponse.json())
-  .then(data => res.json(data))
+  .then(data => res.json(data.content))
   .catch(error => res.status(500).json({ error: error.message }));
 });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
+//Finds html
 app.use(express.static(__dirname));
 app.get('/', (req, res) => {
   res.sendFile('index.html', { root: __dirname }); 
 });
-
 
