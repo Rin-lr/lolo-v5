@@ -24,7 +24,7 @@ async function fetchAndParse(url) {
         }
 
         const data = await response.json();
-        //console.log(`Data fetched from ${url}:`, data);
+        console.log(`Data fetched from ${url}:`, data);
 
         const parser = new DOMParser();
         const doc = parser.parseFromString(data, 'text/html');
@@ -59,7 +59,7 @@ async function processFeedUrls() {
 
         try {
             const results = await Promise.all(promises);
-            //console.log('All data fetched:', results);
+            console.log('All data fetched:', results);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
