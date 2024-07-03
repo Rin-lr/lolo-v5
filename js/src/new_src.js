@@ -2,7 +2,7 @@ const new_a_src = document.getElementById('article-url').value;
 
 //Add new src if it is not in the storage
 document.getElementById('parse-button').addEventListener('click', function() {
-    
+    console.log("parse btn is pressed");
     let save_src = (localStorage.getItem('feed-source'));
     if (new_a_src && !JSON.parse(save_src || '[]').includes(new_a_src)) {
         let new_src = JSON.parse(save_src || '[]');
@@ -23,4 +23,5 @@ document.getElementById('parse-button').addEventListener('click', function() {
             processFeedUrls();
         }
     }
+    console.log("Parsing in process");
 });
